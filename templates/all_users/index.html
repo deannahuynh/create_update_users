@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    #wrapper {
+        width: 60%;
+        margin: 0px auto;
+        padding: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    button {
+        align-self: center;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                <th scope="row">{{ user['id'] }}</th>
+                <td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td>{{ user['created_at'] }}</td>
+                <td>
+                    <a href="/users/{{ user['id'] }}">Show</a>
+                    <a href="/users/{{ user['id'] }}/edit">Edit</a>
+                    <a href="/users/{{ user['id'] }}/destroy">Delete</a>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="/users/new">Add a new user</a>
+    </div>
+</body>
+</html>

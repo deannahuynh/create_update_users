@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User By ID</title>
+</head>
+<body>
+    <form action="/users/{{ id }}/update"></form>
+        <div id="wrapper">
+            <h1>USER {{ users['id'] }}</h1>
+            <p>Full Name: {{ users['first_name'] }} {{ users['last_name'] }}</p>
+            <p>Email: {{ users['email'] }}</p>
+            <p>Created On: {{ users['created_at'] }}</p>
+            <p>Last Updated On: {{ users['updated_at'] }}</p>
+            <p>
+                <a href="/users/{{ id }}/edit">Edit</a>
+                <a href="/users/{{ id }}/destroy"></a>
+            </p>
+        </div>
+    </form>
+
+</body>
+</html>
